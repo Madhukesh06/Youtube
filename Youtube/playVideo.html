@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+    }
+
+    #navbar {
+
+        height: 56px;
+
+        background-color: #FFFFFF;
+        color: #000000;
+        padding: 0 16px 0 16px;
+        display: flex;
+
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .tag {
+        height: 20px;
+        margin-left: 20px;
+    }
+
+    .sym {
+        font-family: fantasy;
+        display: flex;
+        align-items: center;
+
+    }
+
+    #searchbar {
+        width: 589px;
+        height: 34px;
+        border-top: 1px solid #CCCCCC;
+        border-bottom: 1px solid #CCCCCC;
+        border-left: 1px solid #CCCCCC;
+        display: flex;
+        align-items: center;
+        background-color: #F0F0F0;
+
+    }
+
+    #search {
+        width: 525px;
+        height: 33px;
+        padding: 1px 0px 1px 0;
+        max-width: 100%;
+        font-size: 16px;
+        font-family: Roboto, Noto, sans-serif;
+        padding-left: 3px;
+    }
+
+    #logo {
+        height: 34px;
+        width: 64px;
+        border: 1px solid #C6C6C6;
+        padding: 1px 6px 1px 6px;
+        background-color: #F0F0F0;
+    }
+
+    #pos {
+
+        width: 80%;
+        display: flex;
+        justify-content: center;
+    }
+    #container{
+        width: 90%;
+        margin: auto;
+        margin-top: 200px;
+    }
+      iframe{
+        width: 1000px;
+        height: 600px
+    }
+    h3{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 1px;
+    }
+</style>
+<body>
+    <div id="navbar">
+        <div class="tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"
+                focusable="false" class="style-scope yt-icon"
+                style="pointer-events: none; display: block; width: 100%; height: 100%;">
+                <g class="style-scope yt-icon">
+                    <path d="M21,6H3V5h18V6z M21,11H3v1h18V11z M21,17H3v1h18V17z" class="style-scope yt-icon" />
+                </g>
+            </svg></div>
+        <div class="tag sym"><svg xmlns="http://www.w3.org/2000/svg" height="100%" version="1.1" viewBox="0 0 68 48"
+                width="100%">
+                <path class="ytp-large-play-button-bg"
+                    d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+                    fill="#f00" />
+                <path d="M 45,24 27,14 27,34" fill="#fff" />
+            </svg>
+            <span>YouTube</span>
+        </div>
+    <div id='container'></div>
+
+</body>
+</html>
+<script>
+
+let data = JSON.parse(localStorage.getItem("video"))
+console.log(data)
+
+    let container = document.getElementById('container');
+     console.log(data)
+           let div = document.createElement('div');
+         
+        let iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${data.videoId}`
+        let h3 = document.createElement('h3');
+         h3.innerText = data.title;
+      
+        div.append(iframe,h3);
+        container.append(div);
+    
+</script>
